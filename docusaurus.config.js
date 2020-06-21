@@ -1,16 +1,16 @@
 module.exports = {
-  title: 'My Site',
-  tagline: 'The tagline of my site',
+  title: 'Docker Mate',
+  tagline: 'Local development made easy',
   url: 'https://docs.docker-mate.dev',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'docker-base', // Usually your GitHub org/user name.
+  organizationName: 'docker-mate', // Usually your GitHub org/user name.
   projectName: 'documentation', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Docker Mate',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Docker Mate Logo',
         src: 'img/logo.svg',
       },
       links: [
@@ -20,9 +20,8 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/docker-mate',
           label: 'GitHub',
           position: 'right',
         },
@@ -32,50 +31,29 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Legal',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Privacy',
+              href: '/privacy',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: 'Imprint',
+              href: '/imprint',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Contribute',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: 'blog',
-            },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/docker-mate',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Docker Mate`,
     },
   },
   presets: [
@@ -88,13 +66,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/docker-mate/documentation/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
