@@ -4,7 +4,7 @@ title: Install
 image: /docs/undraw_setup_wizard.svg
 ---
 
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import FooterSvg from '/docs/undraw_setup_wizard.svg';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -19,7 +19,7 @@ As docker mate is a local environment and no LTS server, often the latest Versio
 
 Depending on your distro you need docker, docker-compose, zsh, envsubstr, make, mkcert and depending on system maybe some other packages like composer or yarn/npm. Local composer uses cache, has maybe a token for higher limits and other advantages.
 
-Depending on your package manager and package sources will effect your installation
+Depending on your package manager and package sources will affect your installation
 
 #### Arch linux
 
@@ -39,11 +39,13 @@ You can find multiple ways to install [mkcert on GitHub](https://github.com/Filo
 
 ### macOS
 
-macOS needs mkcert and envsubst.
+macOS needs `mkcert` and `envsubst`.
 All other required utilities should be installed out of box under macOS. For some systems php and composer is required.
 
 #### Homebrew installation
-Supports updates (package manager for a lot of open source software)
+
+Homebrew is a package manager that supports updates and provides easy installation to a lot of open source software.
+
 ```shell script
 brew install mkcert gettext
 # envsubst is part of gettext
@@ -55,12 +57,12 @@ brew install composer
 
 ### Windows (unsupported)
 
-Untested & unsupported - maybe it works in the linux subsystem (WSL).
+Untested & unsupported - maybe Docker Mate works within the linux subsystem (WSL).
 
 ## Prerequisites
 
 You need a DNS resolve utility like dnsmasq to resolve `.docker` domains locally to your host.
-```dotenv
+```text title="dnsmasq.conf"
 address=/.docker/127.0.0.1
 address=/.docker/::1
 ```
@@ -104,7 +106,7 @@ For existing projects you can use the `make load` command
 :::
 
 It will create all necessary configs for your project and install it in some cases. Will also work with `make` as fallback.
-```bash
+```shell
 make init
 ```
 
@@ -126,8 +128,8 @@ NEW_PROJECT_NAME=domain
 NEW_PROJECT_GIT=n
 ```
 #### Example
-```shell script
+```shell
 NEW_PROJECT_TYPE=system NEW_PROJECT_NAME=domain NEW_PROJECT_GIT=n make init
 ```
 
-<img loading="lazy" alt="Installing Docker Mate" width="1062" height="794.36" src={useBaseUrl('docs/undraw_setup_wizard.svg')} class="img--footer" />
+<FooterSvg className="img--footer" />

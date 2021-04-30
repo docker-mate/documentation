@@ -54,6 +54,7 @@ class DocSearch {
             this.autocompleteOptions.ariaLabel || inputAriaLabel || "search input";
 
         this.isSimpleLayout = layout === "simple";
+
         this.client = new LunrSearchAdapter(searchDocs, searchIndex);
 
         if (enhancedSearchInput) {

@@ -3,7 +3,7 @@ slug: makefile
 title: Makefile
 image: /docs/undraw_professor.svg
 ---
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import FooterSvg from '/docs/undraw_professor.svg';
 
 Create a `Makefile` inside `app/.docker-mate`. 
 Afterwards can add your own custom commands.
@@ -34,7 +34,7 @@ console:
 # Container operations: ##
 #############################
 ```
-1. First line is will be a empty on and needs the `:` to get grepped
+1. First line is will be an empty on and needs the `:` to get grepped
 2. Title Stats with `#`  for be a comment followed by the header/title and `: ##`  fo get grepped.
 
 ### Command
@@ -45,4 +45,4 @@ command: ## This is my new command
 ```
 The double hash (`##`) is important, because we use single hash (`#`) for none help documentation.
 
-<img loading="lazy" alt="Makefile usage in Docker Mate" width="991.13988" height="770.17774" src={useBaseUrl('docs/undraw_professor.svg')} class="img--footer" />
+<FooterSvg className="img--footer" />

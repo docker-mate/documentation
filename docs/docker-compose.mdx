@@ -1,9 +1,9 @@
 ---
 slug: docker-compose
 title: Docker Compose
-image: /docs/undraw_professor.svg
+image: /docs/undraw_connected_world.svg
 ---
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import FooterSvg from '/docs/undraw_connected_world.svg';
 
 Docker Mate has a `docker-compose.yml`, and you can edit or extend it in your project.
 
@@ -66,7 +66,7 @@ volumes:
 ```
 
 ### Change build script
-> Maybe install a additional package because your project needs it.
+> Maybe install an additional package because your project needs it.
 
 ```yaml {3-100} title="docker-project.yml"
 version: '3.7'
@@ -90,8 +90,8 @@ services:
 
 ```
 
-### Load something outside of the project
-> Useful for shared resources or really large folders that causes trouble for the IDE
+### Load files outside the project
+> Useful for shared resources or really large folders that causes trouble for the IDE or avoiding duplicating files.
 
 ```yaml {3-100} title="docker-project.yml"
 version: '3.7'
@@ -101,4 +101,4 @@ services:
       - ../media:/var/www/html/web/media
 ```
 
-<img loading="lazy" alt="Docker Compose in Docker Mate" width="991.13988" height="770.17774" src={useBaseUrl('docs/undraw_professor.svg')} class="img--footer" />
+<FooterSvg className="img--footer" />

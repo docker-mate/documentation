@@ -1,0 +1,73 @@
+---
+slug: grav
+title: Grav
+image: /docs/undraw_content_team.svg
+---
+
+import LogoSvg from "/img/systems/grav-logo.svg"
+import FooterSvg from "/docs/undraw_content_team.svg"
+
+<table className="info-table">
+    <thead>
+        <tr>
+            <th colSpan="2">
+                <LogoSvg alt="Grav CMS" className="img-fluid grav-logo"/>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>License</th>
+            <td>MIT</td>
+        </tr>
+        <tr>
+            <th>Framework</th>
+            <td>Symfony</td>
+        </tr>
+        <tr>
+            <th>Template</th>
+            <td>Twig</td>
+        </tr>
+        <tr>
+            <td colSpan="2"><a href="https://github.com/getgrav/grav" rel="noopener" target="_blank">Repository</a> | <a
+                href="https://getgrav.org/" rel="noopener" target="_blank">Website</a> | <a
+                href="https://learn.getgrav.org/">Documentation</a></td>
+        </tr>
+    </tbody>
+</table>
+
+Grav is different from other supported systems, because it is a file base CMS and needs no database.
+That means you can load hello world container instead of `phpmyadmin-alpin` and `mariadb` in your project.
+
+## Commands
+Grav specific `make` commands.
+
+### `gpm`
+Provides access to GPM (Grav Package Manager) CLI inside the container
+
+### `grav`
+Provides access to Grav CLI inside the container
+
+### `grav-plugin`
+Provides access to Grav plugin CLI inside the container
+
+### `grav-add-admin-user`
+Add Grav admin user via `plugin login new-user`
+
+:::info All make commands
+You can find all available commands in a project with `make help`
+:::
+
+## Initialize project
+
+Start `make init` in an empty Docker Mate and follow the installation wizard.
+
+## Load project
+
+Lack of database make it very easy to load.
+
+1. `make load` - Enter the URL to your git repo
+2. after loading the `hook` runs grav install
+3. (optional) If your repo provides a hook it will be executed.
+
+<FooterSvg className="img--footer"/>

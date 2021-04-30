@@ -1,0 +1,23 @@
+---
+slug: introduction
+title: Introduction
+image: /docs/undraw_content_structure.svg
+---
+import FooterSvg from '/docs/undraw_content_structure.svg';
+
+Docker Mate supports some systems with load and install hocks, but you can run nearly everything in custom and store your configuration in your project repository.
+
+## Supported systems
+
+All added systems need some maintenance and therefore we focus on keeping things stable rather than supporting everything.
+
+## Webserver config
+
+Docker Mate uses nginx as webserver and that means no `.htaccess` is supported. Systems will include a site.conf for nginx. Some systems have no nginx config included or documented, and we use the recommended setting from the community.
+
+:::warning nginx configuration
+`.htaccess` is not supported in nginx webserver.
+:::
+
+
+<FooterSvg className="img--footer" />

@@ -1,0 +1,53 @@
+---
+slug: symfony
+title: Symfony
+image: /docs/undraw_software_engineer.svg
+---
+
+import LogoSvg from "/img/systems/symfony-logo.svg"
+import FooterSvg from "/docs/undraw_software_engineer.svg"
+
+:::info
+There is no Symfony system in Docker Mate, but it is easy to use Symfony with custom template and put the commands, site.conf and sometimes additional container into project folder.
+:::
+
+<table className="info-table">
+    <thead>
+        <tr>
+            <th colSpan="2">
+                <LogoSvg alt="Symfony Framework" className="img-fluid symfony-logo"/>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>License</th>
+            <td>MIT</td>
+        </tr>
+        <tr>
+            <th>Framework</th>
+            <td>Symfony</td>
+        </tr>
+        <tr>
+            <th>Template</th>
+            <td>Twig</td>
+        </tr>
+        <tr>
+            <td colSpan="2"><a href="https://github.com/symfony/" rel="noopener" target="_blank">Repository</a> | <a
+                href="https://symfony.com/" rel="noopener" target="_blank">Website</a> | <a
+                href="https://symfony.com/doc/current/index.html">Documentation</a></td>
+        </tr>
+    </tbody>
+</table>
+
+Symfony is a Framework and allows building flexible applications and a lot of eCommerce and CMS-Systems use Symfony as base.
+
+
+## Initialize project
+
+Start `make init` in an empty Docker Mate and follow the installation wizard with the custom template. Afterwards initialize a project with composer in the app Folder
+
+Adjust your `public` folder to `web` or add a custom site config to run `public` in nginx.
+
+
+<FooterSvg className="img--footer"/>

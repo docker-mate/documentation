@@ -1,0 +1,58 @@
+---
+slug: shopware6
+title: Shopware 6
+image: /docs/undraw_web_shopping.svg
+---
+
+import LogoSvg from "/img/systems/shopware-logo.svg"
+import FooterSvg from "/docs/undraw_web_shopping.svg"
+
+<table className="info-table">
+    <thead>
+        <tr>
+            <th colSpan="2">
+                <LogoSvg alt="Shopware eCommerce" className="img-fluid grav-logo"/>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>License</th>
+            <td>MIT</td>
+        </tr>
+        <tr>
+            <th>Framework</th>
+            <td>Symfony</td>
+        </tr>
+        <tr>
+            <th>Template</th>
+            <td>Twig</td>
+        </tr>
+        <tr>
+            <td colSpan="2">
+                <a href="https://github.com/shopware/plattform" rel="noopener" target="_blank">Repository</a> | <a
+                href="https://www.shopware.com/en/download/#shopware-6" rel="noopener" target="_blank">Website</a> | <a
+                href="https://developers.shopware.com/">Documentation</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+Completely newly written eCommerce system from Shopware Company. Licensed changed to MIT license and fully based on Symfony
+
+## Commands
+
+### `console`
+
+Shopware/Symfony CLI
+
+
+## Initialize project
+
+:::caution PHP 8.0
+Installer is not PHP 8.0 compatible. Shopware itself is PHP 8.0 compatible.
+:::
+
+Run `make init` in an empty Docker Mate and follow the installation wizard. Afterwards use the web installer (no wrapper for the recovery cli at the moment).
+
+<FooterSvg className="img--footer"/>

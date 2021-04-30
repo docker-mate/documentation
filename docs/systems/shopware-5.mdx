@@ -1,0 +1,88 @@
+---
+slug: shopware5
+title: Shopware 5 (EOL)
+image: /docs/undraw_add_to_cart.svg
+---
+
+import LogoSvg from "/img/systems/shopware-logo.svg"
+import FooterSvg from "/docs/undraw_add_to_cart.svg"
+
+:::caution End of life (EOL)
+Shopware 5 is planned for EOL date and Shopware recommends to use [Shopware 6](shopware6) for new projects
+:::
+
+<table className="info-table">
+    <thead>
+        <tr>
+            <th colSpan="2">
+                <LogoSvg alt="Shopware eCommerce" className="img-fluid grav-logo"/>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>License</th>
+            <td>Dual license AGPL v3 / Proprietary</td>
+        </tr>
+        <tr>
+            <th>Framework</th>
+            <td>Symfony</td>
+        </tr>
+        <tr>
+            <th>Template</th>
+            <td>Smarty</td>
+        </tr>
+        <tr>
+            <td colSpan="2">
+                <a href="https://github.com/shopware/shopware" rel="noopener" target="_blank">Repository</a> | <a
+                href="https://www.shopware.com/en/download/#shopware-5" rel="noopener" target="_blank">Website</a> | <a
+                href="https://developers.shopware.com/">Documentation</a></td>
+        </tr>
+    </tbody>
+</table>
+
+
+Shopware 5 is based on original first version of Shopware and some architectural decisions from beginning are still in the project. That is one of main reasons for Shopware 6.
+
+## Commands
+
+
+### `console`
+
+Shopware CLI
+
+### `grunt`
+
+:::info
+Before the first usage npm install needs to be exectued in your themes folder.
+:::
+
+Dump theme configuration and starts grunt and compiles the style after every less change.
+
+
+### `plugin-list`
+
+List plugins
+
+### `plugin-update`
+
+Update plugins
+
+Needed ENV Vars for store plugins:
+ - SW_USER
+ - SW_PASSWORD
+ - SW_DOMAIN
+
+### `sw-install`
+
+:::caution
+Not PHP 8.0 compatible (only the installer)
+:::
+
+This installs the main configurations and isn't included in initialisation. Some will prefer the frontend installer.
+
+## Initialize project
+
+Run `make init` in an empty Docker Mate and follow the installation wizard. Afterwards you need to use the web installer or run `make sw-install`.
+
+<FooterSvg className="img--footer"/>

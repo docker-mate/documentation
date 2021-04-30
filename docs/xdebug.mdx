@@ -3,18 +3,18 @@ slug: xdebug
 title: xDebug
 image: /docs/undraw_bug_fixing.svg
 ---
-import useBaseUrl from '@docusaurus/useBaseUrl';
+import FooterSvg from '/docs/undraw_bug_fixing.svg';
 
-Since xDebug v3 is Xdebug controlled by environment variable and runs only then Browser sends the header to enable it.
+Since xDebug v3 is controlled by environment variable and runs only then Browser sends the header to enable it.
 
-:::caution
+:::caution xDebug support
 PHP 7.2 and up includes xDebug 3.X and is much faster.<br/>
-PHP 7.1 and lower has 2.x and runs xDebug on every request and is untested in Docker Mate
+PHP 7.1 and lower has 2.x and runs xDebug on every request and is untested in Docker Mate.
 :::
 
 ## Browser extension
 
-List matches the extensions on xDebug documentation site, but also some alternatives exit.
+List matches the extensions on xDebug documentation site, but there are also some alternatives available.
 
 ### Firefox
 
@@ -30,7 +30,6 @@ https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdg
 
 ### Other
 
-There are some other ways to add IDE key exit. 
-If you have a problem check the documentation of your IDE.
+There different ways engage xDebug support from your Browser to your IDE. Please check the documentation from your Editor or IDE.
 
-<img loading="lazy" alt="xdebug with Docker Mate" width="1022.7" height="785.81" src={useBaseUrl('docs/undraw_bug_fixing.svg')} class="img--footer" />
+<FooterSvg className="img--footer" />
