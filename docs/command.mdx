@@ -1,0 +1,101 @@
+---
+slug: command
+title: Make commands
+image: /docs/undraw_functions.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+All commands listed need `make` e.g. `make init` or `make urls`
+
+:::info Help
+Command help can be accessed `make` or `make help`
+:::
+
+## Docker
+
+### init
+Initializes a new project.
+
+### load
+Loads an existing project/git repo.
+
+### up
+Starts all containers. Missing containers will be loaded.
+
+### upgrade
+Upgrades all containers.
+
+### stop
+Stops all containers including rebuild the config.
+
+### restart
+Restarts all containers (`stop` && `up`)
+
+### destroy
+Destroys all containers and volumes in this project.
+
+### rebuild
+`destroy`s all containers and runs `upgrade` afterwards.
+
+### state
+Returns the current state of all container
+
+### logs
+Shows you logs for all containers with tail. 
+If you add a container name like `web` or `app` you will get the output from this single container.
+
+
+## Container access
+
+### ssh {name}
+Needs container name and will access that container as root
+
+:::warning
+You will write files as root and maybe not be able to delete them locally.
+To avoid these issues use `su application` once inside the container.
+:::
+
+### ssh-app
+Accesses the `app` container as `application` user.
+
+## Certificates
+
+### cert-install
+
+Installs the generated root cert into your browser.
+This ensures the generated SSL certs to be valid.
+
+:::caution Certificate issues
+- Certificate is not installed everywhere in your system and commands like `curl` or `wget` may fail.
+- CAA can cause issues with normal domains. This pins the Certificate Authority for a domain. `*.docker` should never be a problem.
+:::
+
+### gen-cert
+(Re-)generates the certificate for this project and runs `make upgrade` afterwards.
+
+## MySQL
+
+### mysql-backup
+Create a new mysql backup.
+Warns before overriding an old backup and allows to rename the old backup.
+
+### mysql-restore
+Restores a backup form `backup/mysql.sql.gz`.
+
+## Utils
+
+### urls
+Returns the `*.docker` domains for the project, backend, mailcatcher & phpmyadmin.
+
+### check-proxy
+You need a reverse proxy and this will check if something is running und port 80/443 and otherwise will start a dinghy reverse proxy container.
+
+### help
+Shows you all documented commands
+
+:::note Additional commands
+Systems & your project can add additional commands to make.
+Pressing tab will usually autocomplete the commands in your console.
+:::
+
+<img loading="lazy" alt="Commands in Docker Mate" width="1200" height="663" src={useBaseUrl('docs/undraw_functions.svg')} class="img--footer" />

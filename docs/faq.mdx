@@ -1,0 +1,29 @@
+---
+slug: faq
+title: FAQ
+image: /docs/undraw_searching.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Why is `mkcert` required?
+
+Sometimes you need another domain different to `.docker` and if an HSTS-Header is set, connecting without SSL will fail.
+Additionally, some features like http2 only work with TLS in nginx and other webservers and smallers the gap between development and deployed project.
+
+At the end a hard requirement makes maintaining it easier including providing easy updateable instances.
+
+## Why is * implemented this way?
+
+We tested a lot of options in different projects and tried to make it as convinced as possible to start a project.
+Suggestions for improvements are welcome - at the very least we'll explain some background.
+
+## Windows support
+
+**Short**<br />No \#!\*$, no plan, no motivation, noting.
+
+**Long**<br />Nobody in our work environments is using windows for any kind of development.
+We know the official Docker support is good for Windows and adding support would require maintaining it in the future.
+Therefore, you're on your own when using Windows.
+If you insist on using this platform, your best bet is probably using WSL(2) - which is untested but should work (in theory - still unsupported).
+
+<img loading="lazy" alt="FAQ" width="887.5" height="444.00977" src={useBaseUrl('docs/undraw_searching.svg')} class="img--footer" />

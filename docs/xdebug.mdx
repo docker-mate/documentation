@@ -1,0 +1,36 @@
+---
+slug: xdebug
+title: xDebug
+image: /docs/undraw_bug_fixing.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Since xDebug v3 is Xdebug controlled by environment variable and runs only then Browser sends the header to enable it.
+
+:::caution
+PHP 7.2 and up includes xDebug 3.X and is much faster.<br/>
+PHP 7.1 and lower has 2.x and runs xDebug on every request and is untested in Docker Mate
+:::
+
+## Browser extension
+
+List matches the extensions on xDebug documentation site, but also some alternatives exit.
+
+### Firefox
+
+> Small icon in address bar and settings allow you to set a sessionkey like `PHPSTORM`; Also a shortcut is available.
+
+https://addons.mozilla.org/en-GB/firefox/addon/xdebug-helper-for-firefox/
+
+### Chromium
+
+> Looks similar to the Firefox Addon
+
+https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc
+
+### Other
+
+There are some other ways to add IDE key exit. 
+If you have a problem check the documentation of your IDE.
+
+<img loading="lazy" alt="xdebug with Docker Mate" width="1022.7" height="785.81" src={useBaseUrl('docs/undraw_bug_fixing.svg')} class="img--footer" />

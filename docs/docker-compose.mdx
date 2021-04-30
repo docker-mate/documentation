@@ -1,0 +1,104 @@
+---
+slug: docker-compose
+title: Docker Compose
+image: /docs/undraw_professor.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Docker Mate has a `docker-compose.yml`, and you can edit or extend it in your project.
+
+## Add docker-project.yml to your project
+
+Create a `.env` inside `app/.docker-mate` and set
+
+```dotenv title="app/.docker-mate/.env"
+DOCKER_COMPOSE_PROJECT="-f app/.docker-mate/docker-project.yml"
+````
+Afterwards create `docker-project.yml` with your settings.
+
+## Examples
+
+### Add a container
+> In this example a fast image proxy. Elasticsearch and other containers are possible.
+
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  imaginary:
+    image: h2non/imaginary:latest
+    volumes:
+      - ./app/web/:/mnt/data/:cached,ro
+    environment:
+      - PORT=9001 # Accessable from nginx
+    command: -enable-url-source -mount /mnt/data/
+```
+
+### Remove DB related container
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  phpmyadmin: # Replace with small image that stops after build
+    image: hello-world
+
+  db: # Replace with small image that stops after build
+    image: hello-world
+```
+
+### Write cache into a volume
+
+> Avoid writing into project and get indexer started in IDE
+
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  app:
+    volumes:
+      - cache_vol:/var/www/html/web/cache
+  web:
+    volumes:
+      - cache_vol:/var/www/html/web/cache
+
+volumes:
+  cache_vol:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+```
+
+### Change build script
+> Maybe install a additional package because your project needs it.
+
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  app: # Project specific packages
+    build:
+      context: ./app/.docker-mate/app/
+```
+
+### Additional domain
+> Needs also be added to set `www.example.com` to `ADDITIONAL_DOMAIN` in `.env`
+
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  web:
+    volumes:
+      - ../mamarella-media:/var/www/html/web/media
+    environment:
+      - VIRTUAL_HOST=$PROJECT_NAME.docker,www/example.com,phpmyadmin.$PROJECT_NAME.docker
+
+```
+
+### Load something outside of the project
+> Useful for shared resources or really large folders that causes trouble for the IDE
+
+```yaml {3-100} title="docker-project.yml"
+version: '3.7'
+services:
+  web:
+    volumes:
+      - ../media:/var/www/html/web/media
+```
+
+<img loading="lazy" alt="Docker Compose in Docker Mate" width="991.13988" height="770.17774" src={useBaseUrl('docs/undraw_professor.svg')} class="img--footer" />

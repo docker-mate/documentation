@@ -1,0 +1,35 @@
+---
+slug: load
+title: Load project
+image: /docs/undraw_update.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+You can create your own project loader. Simply add a bash script here: `./app/.docker-mate/load-hook.sh`.<br />
+Some systems also include a load hook.
+
+:::info Entrypoint
+You always start in the top directory and often need to switch into `app`. 
+You can also run `make` commands.
+:::
+
+## Examples
+
+### Build css/js yarn
+> Example uses a build-assets command from your `Makefile`. Avoids duplicate code.
+
+```shell script title="app/.docker-mate/load-hook.sh"
+#!/usr/bin/env bash
+cd app || exit 1
+composer install
+
+cd theme || exit 1
+yarn --frozen-lockfile || exit 1
+
+cd ../../
+
+# Return urls
+make build-assets
+```
+
+<img loading="lazy" alt="Load a project in Docker Mate" width="1044" height="638.64" src={useBaseUrl('docs/undraw_update.svg')} class="img--footer" />

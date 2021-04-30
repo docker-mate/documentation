@@ -1,0 +1,48 @@
+---
+slug: makefile
+title: Makefile
+image: /docs/undraw_professor.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+Create a `Makefile` inside `app/.docker-mate`. 
+Afterwards can add your own custom commands.
+
+## Examples
+
+### Add Build asset
+```makefile title="Makefile"
+build-asset:
+    cd app/theme; yarn build
+```
+
+### Run a command inside container
+> Runs as `application` user and passes arguments to console.<br/>
+> NOTE: `${WEB_ROOT}` needs to be defined
+
+```makefilee title="Makefile"
+console:
+	docker exec -u application -it -w ${WEB_ROOT} $$(docker-compose ps -q app) bin/console $(ARGS)
+
+```
+
+## Define help
+
+### Section header
+```makefile title="Makefile"
+##:##########################
+# Container operations: ##
+#############################
+```
+1. First line is will be a empty on and needs the `:` to get grepped
+2. Title Stats with `#`  for be a comment followed by the header/title and `: ##`  fo get grepped.
+
+### Command
+
+```makefile title="Makefile"
+command: ## This is my new command
+  your-command
+```
+The double hash (`##`) is important, because we use single hash (`#`) for none help documentation.
+
+<img loading="lazy" alt="Makefile usage in Docker Mate" width="991.13988" height="770.17774" src={useBaseUrl('docs/undraw_professor.svg')} class="img--footer" />

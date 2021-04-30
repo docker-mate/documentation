@@ -1,0 +1,40 @@
+---
+slug: nginx-config
+title: Nginx vhost
+image: /docs/undraw_server_push.svg
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+:::caution
+Needs to be a full `server { ... }` config! 
+A good starting point is often to copy the `site.conf` from your system.
+:::
+
+## Example
+> Related to docker-compose [imaginary example](http://localhost:3002/docs/docker-compose#add-a-container)
+
+```nginx {8,19} title="site.conf"
+map $qualityLevel $quality {
+    default false;
+    1 82;
+    2 65;
+}
+
+server {
+    ...
+
+    location ~ ^/i/(?<qualityLevel>\d)/(?<width>\d+)/(?<height>\d+)/(?<image>.*) {
+        if ($quality = false) {
+            return 404;
+        }
+
+        proxy_pass http://imaginary:9001/crop?width=$width&height=$height&interlace=true&quality=$quality&file=media/$image;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    ...
+}
+
+```
+
+<img loading="lazy" alt="Nginx config in Docker Mate" width="932" height="741.47674" src={useBaseUrl('docs/undraw_server_push.svg')} class="img--footer" />

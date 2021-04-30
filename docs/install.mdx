@@ -1,0 +1,133 @@
+---
+slug: install
+title: Install
+image: /docs/undraw_setup_wizard.svg
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+## Installation
+
+:::success Up to date system
+As docker mate is a local environment and no LTS server, often the latest Version of Docker & Docker Compose is used and tested.
+:::
+
+### Linux
+
+Depending on your distro you need docker, docker-compose, zsh, envsubstr, make, mkcert and depending on system maybe some other packages like composer or yarn/npm. Local composer uses cache, has maybe a token for higher limits and other advantages.
+
+Depending on your package manager and package sources will effect your installation
+
+#### Arch linux
+
+```shell script
+pacman -S docker docker-compose
+pacman -S mkcert # Generates certs and installs a local root cert
+pacman -S dnsmasq # You can also use a different tool
+```
+
+:::info NetworkManager
+If you use the NetworkManager and DHCP you need to choose `Address only` and add the [Prerequisites](#prerequisites)
+:::
+
+#### Other Distros
+
+You can find multiple ways to install [mkcert on GitHub](https://github.com/FiloSottile/mkcert)
+
+### macOS
+
+macOS needs mkcert and envsubst.
+All other required utilities should be installed out of box under macOS. For some systems php and composer is required.
+
+#### Homebrew installation
+Supports updates (package manager for a lot of open source software)
+```shell script
+brew install mkcert gettext
+# envsubst is part of gettext
+brew link --force gettext
+
+# (optional) install composer via brew
+brew install composer
+```
+
+### Windows (unsupported)
+
+Untested & unsupported - maybe it works in the linux subsystem (WSL).
+
+## Prerequisites
+
+You need a DNS resolve utility like dnsmasq to resolve `.docker` domains locally to your host.
+```dotenv
+address=/.docker/127.0.0.1
+address=/.docker/::1
+```
+
+:::caution
+If you manipulate used domains for local development, you should consider adding some kind of browser addon that shows the current IP for the domain to avoid connections to wrong web/server.
+Browsers also use internal DNS-Caches: force reload often helps in these cases e.g. `Ctrl (+ Shift) + F5`.
+:::
+
+## Usage
+
+Clone docker mate into a new folder
+
+<Tabs
+  groupId="git-remote"
+  defaultValue="ssh"
+  values={[
+    {label: 'SSH', value: 'ssh'},
+    {label: 'HTTPS', value: 'https'},
+  ]}>
+  <TabItem value="ssh">
+
+  ```shell script
+  git clone git@github.com:docker-mate/docker-mate.git your-project
+  ```
+
+  </TabItem>
+  <TabItem value="https">
+
+  ```shell script
+  git clone https://github.com/docker-mate/docker-mate.git your-project
+  ```
+
+  </TabItem>
+</Tabs>
+
+## Install system
+
+:::note
+For existing projects you can use the `make load` command
+:::
+
+It will create all necessary configs for your project and install it in some cases. Will also work with `make` as fallback.
+```bash
+make init
+```
+
+1. Choose a system for your project (all available systems in the `.systems/` directory)
+2. Wait until it is finished. Depending on system additional imports maybe required.
+
+### Automation (avoid input)
+
+Some variables exist to run tests and can also be used to create a project and *avoid* the input during installation
+
+```dotenv
+# Folder name from systems
+NEW_PROJECT_TYPE=system
+
+# Chosse a *domain*.docker
+NEW_PROJECT_NAME=domain
+
+# y\n - yes or not to git init in app ([y]es requries inut during the installation)
+NEW_PROJECT_GIT=n
+```
+#### Example
+```shell script
+NEW_PROJECT_TYPE=system NEW_PROJECT_NAME=domain NEW_PROJECT_GIT=n make init
+```
+
+<img loading="lazy" alt="Installing Docker Mate" width="1062" height="794.36" src={useBaseUrl('docs/undraw_setup_wizard.svg')} class="img--footer" />
