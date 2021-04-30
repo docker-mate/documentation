@@ -6,51 +6,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const features = [
-    {
-        title: <>Easy to setup</>,
-        imageUrl: 'img/setup.svg',
-        description: (
-            <>
-                Docker mate is build to simplify your development setup and easy updates <code>git pull</code>.
-            </>
-        ),
-    },
-    {
-        title: <>Configure to your needs</>,
-        imageUrl: 'img/settings.svg',
-        description: (
-            <>
-                Different predefined system and possibilities to overwrite, adjust and extend configuration.
-            </>
-        ),
-    },
-    {
-        title: <>Develop your application</>,
-        imageUrl: 'img/develop.svg',
-        description: (
-            <>
-                Start your environment and develop your application.
-            </>
-        ),
-    },
-];
-
-function Feature({imageUrl, title, description}) {
-    const imgUrl = useBaseUrl(imageUrl);
-    return (
-        <div className={clsx('col col--4', styles.feature)}>
-            {imgUrl && (
-                <div className="text--center">
-                    <img className={styles.featureImage} src={imgUrl} alt={title}/>
-                </div>
-            )}
-            <h3>{title}</h3>
-            <p>{description}</p>
-        </div>
-    );
-}
-
 function Home() {
     const context = useDocusaurusContext();
     const {siteConfig = {}} = context;
@@ -62,7 +17,8 @@ function Home() {
                 <div className="container">
                     <h1 className="hero__title">{siteConfig.title}</h1>
                     <p className="hero__subtitle">{siteConfig.tagline}</p>
-                    <img className="featureImage_src-pages-" src="img/container.svg" alt="Docker container"/>
+                    <img src="img/container.svg" alt="Docker container" width="1119.60911" height="699"
+                         class="img-fluid"/>
                     <div className={styles.buttons}>
                         <Link
                             className={clsx(
@@ -76,17 +32,41 @@ function Home() {
                 </div>
             </header>
             <main>
-                {features && features.length > 0 && (
-                    <section className={styles.features}>
-                        <div className="container">
-                            <div className="row">
-                                {features.map((props, idx) => (
-                                    <Feature key={idx} {...props} />
-                                ))}
+                <section className={styles.features}>
+                    <div className="container text--center margin-bottom--xl">
+                        <div className="row">
+                            <div className="col">
+                                <div className="text--center img--grid">
+                                    <img className="img-fluid"
+                                         src={useBaseUrl('/img/setup.svg')}
+                                         alt="Easy to setup"/>
+                                </div>
+                                <h3>Easy to setup</h3>
+                                <p>Docker mate is build to simplify your development setup and easy updates <code>git
+                                    pull</code>.</p>
+                            </div>
+                            <div className="col">
+                                <div className="text--center img--grid">
+                                    <img className="img-fluid"
+                                         src={useBaseUrl('/img/settings.svg')}
+                                         alt="Configure to your needs"/>
+                                </div>
+                                <h3>Configure to your needs</h3>
+                                <p>Different predefined system and possibilities to overwrite, adjust and extend
+                                    configuration.</p>
+                            </div>
+                            <div className="col">
+                                <div className="text--center img--grid">
+                                    <img className="img-fluid"
+                                         src={useBaseUrl('/img/develop.svg')}
+                                         alt="Develop your application"/>
+                                </div>
+                                <h3>Develop your application</h3>
+                                <p>Start your environment and develop your application.</p>
                             </div>
                         </div>
-                    </section>
-                )}
+                    </div>
+                </section>
             </main>
         </Layout>
     );

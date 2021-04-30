@@ -68,8 +68,7 @@ const Search = props => {
       if (!searchBarRef.current.contains(e.target)) {
         searchBarRef.current.focus();
       }
-
-      props.handleSearchBarToggle(!props.isSearchBarExpanded);
+      props.handleSearchBarToggle && props.handleSearchBarToggle(!props.isSearchBarExpanded);
     },
     [props.isSearchBarExpanded]
   );

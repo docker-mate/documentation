@@ -2,26 +2,36 @@ const path = require('path');
 module.exports = {
     title: 'Docker Mate',
     tagline: 'Documentation for Docker Mate',
-    url: 'https://docs.docker-mate.dev',
+    organizationName: 'docker-mate', // Usually your GitHub org/user name.
+    projectName: 'documentation', // Usually your repo name.
     baseUrl: '/',
     baseUrlIssueBanner: true,
+    url: 'https://docker-mate.dev',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'docker-mate', // Usually your GitHub org/user name.
-    projectName: 'documentation', // Usually your repo name.
     themeConfig: {
-        announcementBar: {
-            id: 'supportus',
-            content:
-                '⭐️ If you like Docker Mate, give it a star on <a target="_blank" rel="noopener" href="https://github.com/docker-mate/docker-mate">GitHub</a> and help us to develop to next level! ⭐️',
+        liveCodeBlock: {
+            playgroundPosition: 'bottom',
         },
+        hideableSidebar: true,
+        colorMode: {
+            defaultMode: 'dark',
+            disableSwitch: false,
+            respectPrefersColorScheme: true,
+        },
+        // announcementBar: {
+        //     id: 'supportus',
+        //     content:
+        //         '⭐️ If you like Docker Mate, give it a star on <a target="_blank" rel="noopener" href="https://github.com/docker-mate/docker-mate">GitHub</a> and help us to develop to next level! ⭐️',
+        // },
         image: 'img/logo.png',
         navbar: {
             title: 'Docker Mate',
             logo: {
                 alt: 'Docker Mate Logo',
                 src: 'img/logo.svg',
+                srcDark: 'img/logo.svg',
             },
             items: [
                 {
@@ -47,15 +57,15 @@ module.exports = {
             style: 'dark',
             links: [
                 {
-                    title: 'Legal',
+                    title: 'Info',
                     items: [
                         {
-                            label: 'Privacy',
-                            to: 'privacy',
+                            label: 'Get Started',
+                            to: 'docs/start',
                         },
                         {
-                            label: 'Imprint',
-                            to: 'imprint',
+                            label: 'Blog',
+                            to: 'blog',
                         },
                     ],
                 },
@@ -68,8 +78,38 @@ module.exports = {
                         },
                     ],
                 },
+                {
+                    title: 'Community',
+                    items: [
+                        {
+                            label: 'Matrix Chat/Support',
+                            href: 'https://matrix.to/#docker-mate:matrix.org',
+                        },
+                        {
+                            label: 'Twitter',
+                            href: 'https://twitter.com/DockerMate',
+                        },
+                    ],
+                },
+                {
+                    title: 'Legal',
+                    items: [
+                        {
+                            label: 'Privacy',
+                            to: 'privacy',
+                        },
+                        {
+                            label: 'Imprint',
+                            to: 'imprint',
+                        },
+                    ],
+                },
             ],
-            copyright: 'Docker Mate',
+            logo: {
+                alt: 'Docker Mate Logo',
+                src: 'img/logo.svg',
+                href: "/",
+            },
         },
     },
     presets: [
@@ -77,10 +117,14 @@ module.exports = {
             '@docusaurus/preset-classic',
             {
                 docs: {
+                    path: 'docs',
                     sidebarPath: require.resolve('./sidebars.js'),
                     editUrl:
                         'https://github.com/docker-mate/documentation/edit/main/',
                 },
+                showLastUpdateAuthor: true,
+                showLastUpdateTime: true,
+                disableVersioning: true,
                 blog: {
                     path: 'blog',
                     editUrl:
@@ -96,10 +140,6 @@ module.exports = {
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
-                sitemap: {
-                    changefreq: 'weekly',
-                    priority: 0.5,
-                }
             },
         ],
     ],
