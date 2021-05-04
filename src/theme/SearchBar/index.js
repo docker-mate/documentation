@@ -54,9 +54,9 @@ const Search = props => {
         import("./lib/DocSearch"),
         import("./algolia.css")
       ]).then(([searchDocs, searchIndex, { default: DocSearch }]) => {
-          if( searchDocs.length === 0) {
-              return;
-          }
+        if( searchDocs.length === 0) {
+          return;
+        }
         initAlgolia(searchDocs, searchIndex, DocSearch);
       });
       initialized.current = true;
@@ -68,7 +68,8 @@ const Search = props => {
       if (!searchBarRef.current.contains(e.target)) {
         searchBarRef.current.focus();
       }
-      props.handleSearchBarToggle && props.handleSearchBarToggle(!props.isSearchBarExpanded);
+
+      props.handleSearchBarToggle(!props.isSearchBarExpanded);
     },
     [props.isSearchBarExpanded]
   );
