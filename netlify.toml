@@ -1,0 +1,21 @@
+[build]
+command = "yarn build"
+publish = "build"
+
+[build.environment]
+NETLIFY_USE_YARN = "true"
+YARN_VERSION = "1.22.5"
+NODE_VERSION = "14"
+
+[context.production]
+command = "yarn build"
+
+[context.deploy-preview]
+command = "yarn build"
+
+[[plugins]]
+package = "netlify-plugin-cache"
+[plugins.inputs]
+paths = [
+    "node_modules/.cache/webpack",
+]

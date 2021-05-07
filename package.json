@@ -10,6 +10,7 @@
     "@docusaurus/preset-classic": "2.0.0-alpha.75",
     "clsx": "^1.1",
     "docusaurus-lunr-search": "xf-/docusaurus-lunr-search#master",
+    "netlify-plugin-cache": "^1.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
