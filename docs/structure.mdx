@@ -8,14 +8,16 @@ import FooterSvg from '/docs/undraw_process.svg';
 Folder and files can be grouped into 3 different groups.
 
 ## Docker Mate basis (local)
+
 ```shell
-docker-mate
+docker-mate-project
 ├── .docker-mate # Dockerfile and config folder
-    ├── docker # Container configs (nginx/app)
-    ├── systems # Contains different setup instructions
-    ├── utils  # Shell scripts (helpers)
-    └── .env.example # Template for .env in main folder
-├── .env # Local project config file and extend docker-compose.yaml (COMPOSE_FILE_LOCAL)
+│   ├── docker # Container configs (nginx/app)
+│   ├── systems # Contains different setup instructions
+│   ├── utils  # Shell scripts (helpers)
+│   └── .env.example # Template for .env in main folder
+├── app # Project folder
+├── .env # Local project config file and extend docker-compose.yml (COMPOSE_FILE_LOCAL)
 ├── .utils # Shell scripts (helpers)
 ├── docker-compose.yml # Provides the used main docker containers
 └── Makefile # All global docker mate `make` commands
@@ -24,31 +26,36 @@ docker-mate
 
 ### Systems (in .docker-mate)
 ```shell
-docker-mate
-└── systems
-    ├── system1
-    └── system2
-        ├── .hook # (optional)
-        │   └── load.sh # Performs commands while loading an existing project to restore it
-        ├── .env # Exports some envs for `make init`
-        ├── .gitignore # Adds default gitignore on `init`
-        ├── app.sh # Allows to run commands inside app containers
-        ├── create.sh # Install script
-        ├── Makefile # System specific commands like `gulp` or `console`
-        └── site.conf # Nginx config
-    ...
+...
+docker-mate-project
+└── .docker-mate
+    └── systems
+        ├── system1
+        └── system2
+            ├── hook # (optional)
+            │   └── load.sh # Performs commands while loading an existing project to restore it
+            ├── .env # Exports some envs for `make init`
+            ├── .gitignore # Adds default gitignore on `init`
+            ├── app.sh # Allows to run commands inside app containers
+            ├── create.sh # Install script
+            ├── Makefile # System specific commands like `gulp` or `console`
+            └── site.conf # Nginx config
+        ...
 ```
 
 ### Project (your git)
+
+The folder `app/.docker-mate` is optional and allows overriding and extend nearly all components of Docker Mate.
+
 ```shell
-docker-mate
+docker-mate-project
 └── app
     └── .docker-mate # (everything is optional)
-    │   ├── .env # Allows to set all variables in the repo and define a additional `docker-compose.yaml`
-    │   ├── docker-compose.yml # If set in `.env` you can add and overwrite containers (COMPOSE_FILE_PROJECT)
+    │   ├── .env # Allows to set all variables in the repo and define a additional `docker-project.yml`
+    │   ├── docker-project.yml # If set in `.env` you can add and overwrite containers (COMPOSE_FILE_PROJECT)
     │   ├── load-hook.sh # Will execute your load hooks
     │   ├── Makefile # Your commands like `convert` or `test`
-    │   └── site.conf # Overwrites system nginx config
+    │   └── site.conf # Overwrites system nginx config site.conf
     └── web # Needed in nginx as doc_root
 ```
 
