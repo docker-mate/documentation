@@ -6,8 +6,8 @@
     "swizzle": "docusaurus swizzle"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.41eaa690e",
-    "@docusaurus/preset-classic": "2.0.0-beta.41eaa690e",
+    "@docusaurus/core": "2.0.0-beta.3",
+    "@docusaurus/preset-classic": "2.0.0-beta.3",
     "clsx": "^1.1",
     "docusaurus-lunr-search": "^2.1.14",
     "netlify-plugin-cache": "^1.0.3",
