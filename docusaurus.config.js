@@ -121,10 +121,9 @@ module.exports = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     editUrl:
                         'https://github.com/docker-mate/documentation/edit/main/',
+                    showLastUpdateAuthor: false,
+                    showLastUpdateTime: true,
                 },
-                showLastUpdateAuthor: true,
-                showLastUpdateTime: true,
-                disableVersioning: true,
                 blog: {
                     path: 'blog',
                     editUrl:
