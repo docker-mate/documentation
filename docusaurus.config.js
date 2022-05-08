@@ -14,7 +14,6 @@ module.exports = {
         liveCodeBlock: {
             playgroundPosition: 'bottom',
         },
-        hideableSidebar: true,
         colorMode: {
             defaultMode: 'dark',
             disableSwitch: false,
@@ -26,6 +25,11 @@ module.exports = {
         //         '⭐️ If you like Docker Mate, give it a star on <a target="_blank" rel="noopener" href="https://github.com/docker-mate/docker-mate">GitHub</a> and help us to develop to next level! ⭐️',
         // },
         image: 'img/logo.png',
+        docs: {
+            sidebar: {
+                hideable: true,
+            },
+        },
         navbar: {
             title: 'Docker Mate',
             logo: {
