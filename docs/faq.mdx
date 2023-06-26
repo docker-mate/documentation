@@ -26,4 +26,9 @@ We know the official Docker supports Windows, but adding support would require m
 Therefore, you're on your own when using Windows.
 If you insist on using it, your best bet is probably using WSL(2) - which is untested but should work (in theory - still unsupported).
 
+## Known issues
+
+- Docker compose v2 changed the interpreter to env and supports less features [Issue](https://github.com/docker-mate/docker-mate/issues/6)
+- phpMyAdmin throws massive amounts of errors with PHP 8.2. Workaround - switch the image from `image: phpmyadmin/phpmyadmin:fpm-alpine` to `image: phpmyadmin/phpmyadmin:fpm` and it uses its own PHP8.1 fpm (larger image) 
+
 <FooterSvg className="img--footer" />
