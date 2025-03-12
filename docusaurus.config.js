@@ -88,11 +88,7 @@ module.exports = {
                         {
                             label: 'Matrix Chat/Support',
                             href: 'https://matrix.to/#docker-mate:matrix.org',
-                        },
-                        {
-                            label: 'Twitter',
-                            href: 'https://twitter.com/DockerMate',
-                        },
+                        }
                     ],
                 },
                 {
