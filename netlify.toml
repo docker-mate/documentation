@@ -5,7 +5,7 @@ publish = "build"
 [build.environment]
 NETLIFY_USE_YARN = "true"
 YARN_VERSION = "1.22.19"
-NODE_VERSION = "16"
+NODE_VERSION = "22"
 
 [context.production]
 command = "yarn build"
